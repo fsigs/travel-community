@@ -1,3 +1,9 @@
+# Some files
+*.pdf
+*.zip
+*.rar
+*.tar
+
 # Logs
 logs
 *.log
@@ -102,3 +108,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Optional REPL history
+.node_repl_history
+.next
