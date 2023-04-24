@@ -1,0 +1,25 @@
+
+.banner {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text {
+    /* position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%); */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  .card-title {
+    background-color: #0d6efd;
+    text-align: center;
+    color: white;
+  }
