@@ -22,23 +22,15 @@ const tripSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  origin: {
+  locationFrom: {
     type: String,
     required: false
   },
-  startingPoint: {
-    type: String,
-    required: false
-  },
-  destination: {
+  locationTo: {
     type: String,
     required: false
   },
   email: {
-    type: String,
-    required: false
-  },
-  address: {
     type: String,
     required: false
   },
@@ -48,6 +40,10 @@ const tripSchema = new mongoose.Schema({
     get: v => Math.round(v),
     set: v => Math.round(v),
     alias: 'i'
+  },
+  cost:{
+    type: Number,
+    required: true,
   }
 }, { timestamps: true });
 
