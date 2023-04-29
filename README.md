@@ -12,7 +12,6 @@ Import the trips.json file in scripts folder into trips collection.
 
 Commands to start the app:
 npm install
-npm run init
 npm run dev
 
 Project should listen in http://localhost:3000
@@ -30,8 +29,9 @@ get trips/id
 get trips/search
 post trips
 delete trips/id
-post trips/subscribe
-post trips/unsubscribe
+
+get subscriptions
+
 get users/id
 post users/authenticate
 post users

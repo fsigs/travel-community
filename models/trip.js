@@ -8,11 +8,11 @@ const tripSchema = new mongoose.Schema({
   },
   summary: {
     type: String,
-    required: false
+    required: true
   },
   details: {
     type: String,
-    required: false
+    required: true
   },
   startDate: {
     type: Date,
@@ -24,15 +24,15 @@ const tripSchema = new mongoose.Schema({
   },
   locationFrom: {
     type: String,
-    required: false
+    required: true
   },
   locationTo: {
     type: String,
-    required: false
+    required: true
   },
   email: {
     type: String,
-    required: false
+    required: true
   },
   registrations: {
     type: Number,
@@ -47,6 +47,4 @@ const tripSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-const Trip = mongoose.model('Trip', tripSchema);
-
-module.exports = Trip;
+module.exports = mongoose.models.Trip || mongoose.model('Trip', tripSchema)

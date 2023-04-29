@@ -1,0 +1,50 @@
+[
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "$2a$12$22JpuXV061sGNqI6Qc0vguCP3kutUOWGInoHHxo5nzWHjhcTqhA1y",
+    "role": "user"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "password": "$2a$12$22JpuXV061sGNqI6Qc0vguCP3kutUOWGInoHHxo5nzWHjhcTqhA1y",
+    "role": "admin"
+  },
+  {
+    "name": "Mike Johnson",
+    "email": "mike.johnson@example.com",
+    "password": "$2a$12$22JpuXV061sGNqI6Qc0vguCP3kutUOWGInoHHxo5nzWHjhcTqhA1y",
+    "role": "admin"
+  },
+  {
+    "name": "Sarah Lee",
+    "email": "sarah.lee@example.com",
+    "password": "$2a$12$22JpuXV061sGNqI6Qc0vguCP3kutUOWGInoHHxo5nzWHjhcTqhA1y",
+    "role": "admin"
+  },
+  {
+    "name": "Mark Williams",
+    "email": "mark.williams@example.com",
+    "password": "$2a$12$22JpuXV061sGNqI6Qc0vguCP3kutUOWGInoHHxo5nzWHjhcTqhA1y",
+    "role": "user"
+  },
+  {
+    "name": "Emily Brown",
+    "email": "emily.brown@example.com",
+    "password": "$2a$12$22JpuXV061sGNqI6Qc0vguCP3kutUOWGInoHHxo5nzWHjhcTqhA1y",
+    "role": "user"
+  },
+  {
+    "name": "David Lee",
+    "email": "david.lee@example.com",
+    "password": "$2a$12$22JpuXV061sGNqI6Qc0vguCP3kutUOWGInoHHxo5nzWHjhcTqhA1y",
+    "role": "user"
+  },
+  {
+    "name": "Amy Taylor",
+    "email": "amy.taylor@example.com",
+    "password": "$2a$12$22JpuXV061sGNqI6Qc0vguCP3kutUOWGInoHHxo5nzWHjhcTqhA1y",
+    "role": "user"
+  }
+]
