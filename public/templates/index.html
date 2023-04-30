@@ -49,7 +49,7 @@
         <!-- Banner Picture -->
         <div class="container-fluid">
         <div class="row">
-            <div class="col-16 banner" style="background-image: url('images/banner1.jpg');">
+            <div class="col-16 banner" style="background-image: url('../images/banner1.jpg');">
             <h1 class="banner-text display-3">TRAVEL COMMUNITY</h1>
             </div>
         </div>
@@ -59,7 +59,7 @@
         <div class="container-fluid border my-2">
             <div class="row">
                 <!-- Filter Panel -->
-                <div class="col-lg-3 mb-4">
+                <div class="col-lg-2 mb-4">
                     <div class="card">
                       <div class="card-header d-flex justify-content-between align-items-center">
                         <span>Filter Panel</span>
@@ -80,15 +80,20 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="duration">Duration:</label>
-                                  <input type="text" class="form-control" id="duration" placeholder="Number of days">
+                                  <input type="number" class="form-control" id="duration" placeholder="Number of days">
                                 </div>
                                 <div class="form-group">
                                   <label for="groupSize">Group Size:</label>
                                   <input type="number" class="form-control" id="groupSize" placeholder="Number of people">
                                 </div>
                                 <div class="form-group">
-                                  <label for="estimatedCost">Estimated Cost:</label>
-                                  <input type="number" class="form-control" id="estimatedCost" placeholder="Cost in USD">
+                                  <label for="estimatedCostMin" class="form-label">Estimated Cost:</label>
+                                  <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="estimatedCostMin" name="estimatedCostMin" min="0" max="1000" placeholder="Min">
+                                    <span class="input-group-text">-</span>
+                                    <input type="number" class="form-control" id="estimatedCostMax" name="estimatedCostMax" min="0" max="1000" placeholder="Max">
+                                  </div>
                                 </div>
                                 <div class="form-group">
                                   <label for="startPoint">Start Point:</label>
@@ -106,33 +111,33 @@
                   </div>
     
                 <!-- Card Panel with Pagination -->
-                <div class="col-9">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <div class="col-10">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                         <!-- Card 1 -->
                         <div class="col">
                             <div class="card">
-                                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                <div class="card-body">
-                                    <h5 class="card-title p-2 rounded-3">Visit LA</h5>
-                                    <p class="card-text">
-                                        Start Date: 01/01/2024<br>
-                                        End Date: 01/05/2024<br>
-                                        Duration: 5 Days<br>
-                                        Group Size: 4<br>
-                                        Estimated Cost: $500<br>
-                                        Start Point: New York<br>
-                                        Destination: Los Angeles
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Detail</a>
+                                <img src="../images/cardsample.jpg" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Explore San Jose</h5>
+                                      <p class="card-text">
+                                          Start Date: 01/01/2024<br>
+                                          End Date: 01/05/2024<br>
+                                          Duration: 5 Days<br>
+                                          Group Size: 4<br>
+                                          Estimated Cost: $500<br>
+                                          Start Point: New York<br>
+                                          Destination: Los Angeles
+                                      </p>
+                                    <a href="detail.html" class="btn btn-primary">Detail</a>
                                     <a href="#" class="btn btn-primary">Join</a>  
                                 </div>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card">
-                                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                          <div class="card">
+                              <img src="../images/cardsample.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title p-2 rounded-3">Visit LA</h5>
+                                  <h5 class="card-title">Explore San Jose</h5>
                                     <p class="card-text">
                                         Start Date: 01/01/2024<br>
                                         End Date: 01/05/2024<br>
@@ -142,68 +147,68 @@
                                         Start Point: New York<br>
                                         Destination: Los Angeles
                                     </p>
-                                    <a href="#" class="btn btn-primary">Detail</a>
-                                    <a href="#" class="btn btn-primary">Join</a>  
-                                </div>
+                                  <a href="detail.html" class="btn btn-primary">Detail</a>
+                                  <a href="#" class="btn btn-primary">Join</a>  
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                        <div class="card">
+                            <img src="../images/cardsample.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title">Explore San Jose</h5>
+                                  <p class="card-text">
+                                      Start Date: 01/01/2024<br>
+                                      End Date: 01/05/2024<br>
+                                      Duration: 5 Days<br>
+                                      Group Size: 4<br>
+                                      Estimated Cost: $500<br>
+                                      Start Point: New York<br>
+                                      Destination: Los Angeles
+                                  </p>
+                                <a href="detail.html" class="btn btn-primary">Detail</a>
+                                <a href="#" class="btn btn-primary">Join</a>  
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card">
-                                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                <div class="card-body">
-                                    <h5 class="card-title p-2 rounded-3">Visit LA</h5>
-                                    <p class="card-text">
-                                        Start Date: 01/01/2024<br>
-                                        End Date: 01/05/2024<br>
-                                        Duration: 5 Days<br>
-                                        Group Size: 4<br>
-                                        Estimated Cost: $500<br>
-                                        Start Point: New York<br>
-                                        Destination: Los Angeles
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Detail</a>
-                                    <a href="#" class="btn btn-primary">Join</a>  
-                                </div>
+                      </div>
+                      <div class="col">
+                        <div class="card">
+                            <img src="../images/cardsample.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title">Explore San Jose</h5>
+                                  <p class="card-text">
+                                      Start Date: 01/01/2024<br>
+                                      End Date: 01/05/2024<br>
+                                      Duration: 5 Days<br>
+                                      Group Size: 4<br>
+                                      Estimated Cost: $500<br>
+                                      Start Point: New York<br>
+                                      Destination: Los Angeles
+                                  </p>
+                                <a href="detail.html" class="btn btn-primary">Detail</a>
+                                <a href="#" class="btn btn-primary">Join</a>  
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="card">
-                                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                <div class="card-body">
-                                    <h5 class="card-title p-2 rounded-3">Visit LA</h5>
-                                    <p class="card-text">
-                                        Start Date: 01/01/2024<br>
-                                        End Date: 01/05/2024<br>
-                                        Duration: 5 Days<br>
-                                        Group Size: 4<br>
-                                        Estimated Cost: $500<br>
-                                        Start Point: New York<br>
-                                        Destination: Los Angeles
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Visit LA</a>
-                                    <a href="#" class="btn btn-primary">Join</a>  
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card">
-                                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                                <div class="card-body">
-                                    <h5 class="card-title p-2 rounded-3">Visit LA</h5>
-                                    <p class="card-text">
-                                        Start Date: 01/01/2024<br>
-                                        End Date: 01/05/2024<br>
-                                        Duration: 5 Days<br>
-                                        Group Size: 4<br>
-                                        Estimated Cost: $500<br>
-                                        Start Point: New York<br>
-                                        Destination: Los Angeles
-                                    </p>
-                                    <a href="#" class="btn btn-primary">Detail</a>
-                                    <a href="#" class="btn btn-primary">Join</a>  
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="col">
+                      <div class="card">
+                          <img src="../images/cardsample.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Explore San Jose</h5>
+                                <p class="card-text">
+                                    Start Date: 01/01/2024<br>
+                                    End Date: 01/05/2024<br>
+                                    Duration: 5 Days<br>
+                                    Group Size: 4<br>
+                                    Estimated Cost: $500<br>
+                                    Start Point: New York<br>
+                                    Destination: Los Angeles
+                                </p>
+                              <a href="detail.html" class="btn btn-primary">Detail</a>
+                              <a href="#" class="btn btn-primary">Join</a>  
+                          </div>
+                      </div>
+                  </div>
                         <!-- Card 2, 3, 4... -->
     
                     </div>
@@ -260,8 +265,9 @@
 
 
 
-        
+        <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        
 
     </body>
 
