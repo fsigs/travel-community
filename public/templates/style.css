@@ -5,7 +5,8 @@
   background-position: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
+  background-image: url('../images/banner1.jpg');
 }
 
 .banner-text {
