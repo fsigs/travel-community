@@ -25,40 +25,40 @@ export default function TripsFilterForm ({ onFilter }) {
               <form id="trips-filter-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Trip Name:</label>
-                  <input type="text" className="form-control" id="name" />
+                  <input type="text" className="form-control" id="name" name="name" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="startDate">Start Date:</label>
-                  <input type="date" className="form-control" id="startDate" placeholder="MM/DD/YYYY" />
+                  <input type="date" className="form-control" id="startDate" name="startDate" placeholder="MM/DD/YYYY" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="endDate">End Date:</label>
-                  <input type="date" className="form-control" id="endDate" placeholder="MM/DD/YYYY" />
+                  <input type="date" className="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYYY" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="duration">Duration:</label>
-                  <input type="number" className="form-control" id="duration" placeholder="Number of days" />
+                  <input type="number" className="form-control" id="duration" name="duration" placeholder="Number of days" />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="groupSize">Group Size:</label>
-                  <input type="number" className="form-control" id="groupSize" placeholder="Number of people" />
+                  <label htmlFor="registrations">Group Size:</label>
+                  <input type="number" className="form-control" id="registrations" name="registrations" placeholder="Number of people" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="estimatedCostMin" className="form-label">Estimated Cost:</label>
                   <div className="input-group">
                     <span className="input-group-text">$</span>
-                    <input type="number" className="form-control" id="estimatedCostMin" name="estimatedCostMin" min="0" max="1000" placeholder="Min" />
+                    <input type="number" className="form-control" id="costMin" name="costMin" min="1" max="10000" placeholder="Min" />
                     <span className="input-group-text">-</span>
-                    <input type="number" className="form-control" id="estimatedCostMax" name="estimatedCostMax" min="0" max="1000" placeholder="Max" />
+                    <input type="number" className="form-control" id="costMax" name="costMax" min="1" max="10000" placeholder="Max" />
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="startPoint">Start Point:</label>
-                  <input type="text" className="form-control" id="startPoint" placeholder="Starting location" />
+                  <label htmlFor="locationFrom">Start Point:</label>
+                  <input type="text" className="form-control" id="locationFrom" name="locationFrom" placeholder="Starting location" />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="destination">Destination:</label>
-                  <input type="text" className="form-control" id="destination" placeholder="Destination location" />
+                  <label htmlFor="locationTo">Destination:</label>
+                  <input type="text" className="form-control" id="locationTo" name="locationTo" placeholder="Destination location" />
                 </div>
                 <button type="submit" className="btn btn-primary my-2">Search Trips</button>
               </form>

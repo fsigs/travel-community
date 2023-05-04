@@ -3,7 +3,7 @@ import { createTripSchema, updateTripSchema } from './tripValidation';
 
 const listTrips = async (page = 1, filters = {}) => {
 
-  const { name, startDate, endDate, locationFrom, locationTo, cost } = filters;
+  const { name, startDate, endDate, locationFrom, locationTo, costMin, costMax } = filters;
   const limit = 6 
   const query = {};
 
@@ -12,10 +12,15 @@ const listTrips = async (page = 1, filters = {}) => {
   if (endDate) query.endDate = { $lte: new Date(endDate) };
   if (locationFrom) query.locationFrom = { $regex: locationFrom, $options: 'i' };
   if (locationTo) query.locationTo = { $regex: locationTo, $options: 'i' };
-  if (cost) query.cost = { $lte: cost };
+  if (costMin && costMax) {
+    query.cost = { $gte: costMin, $lte: costMax };
+  } else if (costMin) {
+    query.cost = { $gte: costMin };
+  } else if (costMax) {
+    query.cost = { $lte: costMax };
+  }
 
   const skip = (page - 1) * limit;
-
   const count = await Trip.countDocuments(query);
   
   const trips = await Trip.aggregate([
