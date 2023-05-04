@@ -1,4 +1,4 @@
-export default function CreateForm(props) {
+export default function TripCreateForm(props) {
   return(
     <>
       <div className="container">

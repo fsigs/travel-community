@@ -1,30 +1,38 @@
+import React, { useState } from 'react';
 import connectDB from '../utils/db';
 import { listTrips } from '../services/tripService';
 import Layout from "../components/layouts/Layout";
 import TopNavBar from "../components/common/TopNavBar";
 import BannerPlaces from "../components/common/BannerPlaces";
-import FilterPanel from "../components/pages/index/FilterPanel";
-import TripCard from "../components/pages/index/TripCard";
-import TripsPager from "../components/pages/index/TripsPager";
+import TripsFilterForm from "../components/pages/index/TripsFilterForm";
+import TripCardList from "../components/pages/index/TripCardList";
 
 const indexPage = (props) => {
+
+  const [filteredTrips, setFilteredTrips] = useState(props.trips);
+  const filtersToShow = filteredTrips || props.trips
+  const handleFilter = async (filters) => {
+    const queryUrl = '?name=' + filters.name.value
+    const res = await fetch('/api/trips' + queryUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const tripsData = await res.json();
+    setFilteredTrips(tripsData);
+  }
+
   return (
     <>
-    <TopNavBar></TopNavBar>
-    <BannerPlaces></BannerPlaces>
-    <div className="container-fluid border my-2">
-      <div className="row">
-        <FilterPanel></FilterPanel>
-        <div className="col-10">
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {props.trips.data.map((trip) => (
-            <TripCard trip={trip}></TripCard>
-            ))}
-          </div>
-          <TripsPager limit={props.trips.limit} page={props.trips.page} totalCount={props.trips.totalCount}></TripsPager>
+      <TopNavBar></TopNavBar>
+      <BannerPlaces></BannerPlaces>
+      <div className="container-fluid border my-2">
+        <div className="row">
+          <TripsFilterForm onFilter={handleFilter}></TripsFilterForm>
+          <TripCardList trips={filtersToShow}></TripCardList>
         </div>
       </div>
-    </div>
     </>
   )
 }

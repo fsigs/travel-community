@@ -1,4 +1,4 @@
-export default function ContactInfo(props) {
+export default function ContactUs(props) {
   return(
     <>
       <div className="container mt-4">

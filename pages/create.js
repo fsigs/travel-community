@@ -1,14 +1,14 @@
 import Layout from "../components/layouts/Layout";
 import TopNavBar from "../components/common/TopNavBar";
 import BannerPlaces from "../components/common/BannerPlaces";
-import CreateForm from "../components/pages/create/CreateForm"
+import TripCreateForm from "../components/pages/create/TripCreateForm"
 
 const createPage = (props) => {
   return (
     <>
       <TopNavBar></TopNavBar>
       <BannerPlaces></BannerPlaces>
-      <CreateForm></CreateForm>
+      <TripCreateForm></TripCreateForm>
     </>
   )
 }

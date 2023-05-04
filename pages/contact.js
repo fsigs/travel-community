@@ -1,14 +1,14 @@
 import Layout from "../components/layouts/Layout";
 import TopNavBar from "../components/common/TopNavBar";
 import BannerPlaces from "../components/common/BannerPlaces";
-import ContactInfo from "../components/pages/contact/ContactInfo"
+import ContactUs from "../components/pages/contact/ContactUs"
 
 const createPage = (props) => {
   return (
     <>
       <TopNavBar></TopNavBar>
       <BannerPlaces></BannerPlaces>
-      <ContactInfo></ContactInfo>
+      <ContactUs></ContactUs>
     </>
   )
 }
