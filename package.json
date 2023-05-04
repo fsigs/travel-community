@@ -2,7 +2,7 @@
   "name": "travel-community",
   "version": "1.0.0",
   "scripts": {
-    "init": "mongoimport --uri mongodb://127.0.0.1:27017/travelCommunity --collection trips --drop --file ./scripts/trips.json",
+    "init": "cd ./scripts && node fixDates.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

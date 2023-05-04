@@ -13,16 +13,20 @@ const indexPage = (props) => {
   const filtersToShow = filteredTrips || props.trips
   
   const handleFilter = async (filters) => {
+    
     const queryUrl = '?'
+
     for (let i = 0; i < filters.length; i++) {
       const field = filters[i];
       if (field.value) {
         queryUrl += field.name + '=' + field.value + '&'
       }
     }
+
     if (queryUrl.slice(-1) === '&') {
       queryUrl = queryUrl.slice(0, -1);
     }
+
     const res = await fetch('/api/trips' + queryUrl, {
       method: 'GET',
       headers: {

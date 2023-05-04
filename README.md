@@ -12,7 +12,8 @@ Import the trips.json file in scripts folder into trips collection.
 
 Commands to start the app:
 npm install
-npm run dev
+npm run init
+npm run dev or npm run start (if you want productive deployment)
 
 Project should listen in http://localhost:3000
 
