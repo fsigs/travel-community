@@ -1,10 +1,10 @@
 import Trip from '../models/trip'
 import { createTripSchema, updateTripSchema } from './tripValidation';
 
-const listTrips = async (page = 1, limit = 10, filters = {}) => {
+const listTrips = async (page = 1, filters = {}) => {
 
   const { name, startDate, endDate, locationFrom, locationTo, cost } = filters;
-
+  const limit = 6 
   const query = {};
 
   if (name) query.name = { $regex: name, $options: 'i' };
@@ -17,12 +17,7 @@ const listTrips = async (page = 1, limit = 10, filters = {}) => {
   const skip = (page - 1) * limit;
 
   const count = await Trip.countDocuments(query);
-  /*
-  const trips = await Trip.find(query)
-    .sort({ startDate: 1 })
-    .skip(skip)
-    .limit(limit);
-  */
+  
   const trips = await Trip.aggregate([
     { $match: query },
     {

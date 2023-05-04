@@ -8,9 +8,9 @@ import TripsFilterForm from "../components/pages/index/TripsFilterForm";
 import TripCardList from "../components/pages/index/TripCardList";
 
 const indexPage = (props) => {
-
   const [filteredTrips, setFilteredTrips] = useState(props.trips);
   const filtersToShow = filteredTrips || props.trips
+  
   const handleFilter = async (filters) => {
     const queryUrl = '?name=' + filters.name.value
     const res = await fetch('/api/trips' + queryUrl, {
@@ -20,6 +20,7 @@ const indexPage = (props) => {
       },
     });
     const tripsData = await res.json();
+    console.log(tripsData)
     setFilteredTrips(tripsData);
   }
 
@@ -47,7 +48,7 @@ indexPage.getLayout = function getLayout(page, props) {
 
 export async function getStaticProps() {
   await connectDB();
-  const trips = await listTrips(1,6);
+  const trips = await listTrips(1);
   return {
     props: {
       headerData:{title: "Travel Community", content: "Better Trips in group"},
