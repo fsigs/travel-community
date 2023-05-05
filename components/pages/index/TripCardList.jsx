@@ -20,7 +20,9 @@ export default function TripCardList ({trips}) {
             trips.data.map((trip) => (   
             <div className="col" key={trip._id}>
               <div className="card">
-                <img src="../images/cardsample.jpg" className="card-img-top" alt="..."/>
+                <a href={"/trip/" + trip._id}>
+                  <img src="../images/cardsample.jpg" className="card-img-top" alt="..."/>
+                </a>
                 <div className="card-body">
                   <h5 className="card-title">{trip.name}</h5>
                   <p className="card-text">
@@ -32,7 +34,7 @@ export default function TripCardList ({trips}) {
                     Start Point: {trip.locationFrom}<br/>
                     Destination: {trip.locationTo}
                   </p>
-                  <a href={"/trip-" + trip._id} className="btn btn-primary">Detail</a>
+                  <a href={"/trip/" + trip._id} className="btn btn-primary">Detail</a>
                   <a href={"/suscribe-" + trip._id} className="btn btn-primary">Join</a>  
                 </div>
               </div>

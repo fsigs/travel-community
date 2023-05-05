@@ -4,11 +4,25 @@ import BannerPlaces from "../components/common/BannerPlaces";
 import TripCreateForm from "../components/pages/create/TripCreateForm"
 
 const createPage = (props) => {
+
+  const handleCreate = async (data) => {
+    fetch('/api/trips', {
+      method: 'POST',
+      body: data
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
   return (
     <>
       <TopNavBar></TopNavBar>
       <BannerPlaces></BannerPlaces>
-      <TripCreateForm></TripCreateForm>
+      <TripCreateForm onCreate={handleCreate}></TripCreateForm>
     </>
   )
 }
