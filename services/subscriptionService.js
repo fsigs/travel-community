@@ -2,6 +2,7 @@ import Subscription  from '../models/subscription';
 
 async function subscribeToTrip(userId, tripId) {
   try {
+    // Validation of number (registrations) Ishtiaq
     const subscription = await Subscription.findOneAndUpdate(
       { user: userId, trip: tripId },
       { user: userId, trip: tripId },
