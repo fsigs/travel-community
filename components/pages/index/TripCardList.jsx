@@ -10,7 +10,7 @@ export default function TripCardList ({trips}) {
 
   return(
     <>
-    <div className="col-10">
+    <div className="col-9">
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           {trips.data.length === 0 ? (
             <div className="col">

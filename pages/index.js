@@ -13,7 +13,7 @@ const indexPage = (props) => {
   const filtersToShow = filteredTrips || props.trips
   
   const handleFilter = async (filters) => {
-    
+
     const queryUrl = '?'
 
     for (let i = 0; i < filters.length; i++) {
@@ -34,7 +34,6 @@ const indexPage = (props) => {
       },
     });
     const tripsData = await res.json();
-    console.log(tripsData)
     setFilteredTrips(tripsData);
   }
 

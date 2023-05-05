@@ -5,14 +5,14 @@ export default function TripsFilterForm ({ onFilter }) {
   const [filters, setFilters] = useState({});
 
   const handleSubmit = (event) => {
-    const form = document.getElementById('trips-filter-form');
     event.preventDefault();
+    const form = document.getElementById('trips-filter-form');
     onFilter(form.elements);
   };
 
   return(
     <>
-      <div className="col-lg-2 mb-4">
+      <div className="col-lg-3 mb-4">
         <div className="card">
           <div className="card-header d-flex justify-content-between align-items-center">
             <span>Filter Panel</span>
@@ -36,20 +36,21 @@ export default function TripsFilterForm ({ onFilter }) {
                   <input type="date" className="form-control" id="endDate" name="endDate" placeholder="MM/DD/YYYY" />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="duration">Duration:</label>
-                  <input type="number" className="form-control" id="duration" name="duration" placeholder="Number of days" />
+                  <label className="form-label">Group size (# people):</label>
+                  <div className="input-group">
+                    <span className="input-group-text"></span>
+                    <input type="number" className="form-control" id="registrationsMin" name="registrationsMin" min="1" max="1000" />
+                    <span className="input-group-text">-</span>
+                    <input type="number" className="form-control" id="registrationsMax" name="registrationsMax" min="1" max="1000" />
+                  </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="registrations">Group Size:</label>
-                  <input type="number" className="form-control" id="registrations" name="registrations" placeholder="Number of people" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="estimatedCostMin" className="form-label">Estimated Cost:</label>
+                  <label className="form-label">Estimated Cost:</label>
                   <div className="input-group">
                     <span className="input-group-text">$</span>
-                    <input type="number" className="form-control" id="costMin" name="costMin" min="1" max="10000" placeholder="Min" />
+                    <input type="number" className="form-control" id="costMin" name="costMin" min="1" max="10000" />
                     <span className="input-group-text">-</span>
-                    <input type="number" className="form-control" id="costMax" name="costMax" min="1" max="10000" placeholder="Max" />
+                    <input type="number" className="form-control" id="costMax" name="costMax" min="1" max="10000" />
                   </div>
                 </div>
                 <div className="form-group">
