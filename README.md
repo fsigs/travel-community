@@ -7,7 +7,7 @@ Travel Community WebApp
 Before:
 Clone the repo or unzip the app file
 Init command requires mongoimport utility. Install Mongo Tools and enable it https://www.mongodb.com/docs/database-tools/
-Create an empty db in Mongo called travelCommunity with one empty collection called trips. 
+Create an empty database in Mongo called travelCommunity with one empty collection called trips. 
 Import the trips.json file in scripts folder into trips collection.
 
 Commands to start the app:
