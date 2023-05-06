@@ -1,30 +1,23 @@
-import Layout from "../components/layouts/Layout";
-import TopNavBar from "../components/common/TopNavBar";
-import BannerPlaces from "../components/common/BannerPlaces";
-import SignUpForm from "../components/pages/sign/SignUpForm"
+const User = require('../../models/user');
+const bcrypt = require('bcryptjs');
 
-const signUp = (props) => {
-  return (
-    <>
-      <TopNavBar></TopNavBar>
-      <BannerPlaces></BannerPlaces>
-      <SignUpForm></SignUpForm>
-    </>
-  )
-}
-
-export default signUp;
-
-signUp.getLayout = function getLayout(page, props) {
-  return (
-    <Layout headerData={props.headerData}>{page}</Layout>
-  );
-};
-
-export async function getStaticProps() {
-  return {
-    props: {
-      headerData:{title: "Travel Community -  Sign Up", content: "Sign Up"},
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    const { name, email, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    try {
+      const user = new User({
+        name: name,
+        email: email,
+        password: hashedPassword,
+      });
+      await user.save();
+      res.status(201).json({ message: 'User created successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
     }
-  };
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
+  }
 }
