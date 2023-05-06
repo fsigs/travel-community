@@ -10,13 +10,7 @@ export default function signUpForm(props) {
     
     const handleSubmit = (event) => {
       event.preventDefault();
-      const formData = {
-        name,
-        email,
-        password,
-      };
-      console.log(formData);
-    // send form data to server or API
+      // send form data to server or API
     };
     return(
       <>
@@ -28,7 +22,7 @@ export default function signUpForm(props) {
                 <h3>Sign Up</h3>
                 </div>
                 <div className="card-body">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                     <label htmlFor="name">Tour Company/Person Name:</label>
                     <input type="text" className="form-control" id="name" placeholder="Enter name" value={name} onChange={(event) => setName(event.target.value)} required />
