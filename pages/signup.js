@@ -1,23 +1,57 @@
-const User = require('../../models/user');
-const bcrypt = require('bcryptjs');
+import React, { useState } from 'react';
+import Layout from "../components/layouts/Layout";
+import TopNavBar from "../components/common/TopNavBar";
+import BannerPlaces from "../components/common/BannerPlaces";
+import SignUpForm from "../components/pages/sign/SignUpForm"
 
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    const { name, email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+const signUp = (props) => {
+  const [formData, setFormData] = useState({ name: '', email: '', password: ''});
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-      const user = new User({
-        name: name,
-        email: email,
-        password: hashedPassword,
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
       });
-      await user.save();
-      res.status(201).json({ message: 'User created successfully' });
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
     }
-  } else {
-    res.status(405).json({ message: 'Method not allowed' });
-  }
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  return (
+    <>
+      <TopNavBar></TopNavBar>
+      <BannerPlaces></BannerPlaces>
+      <SignUpForm onSubmit={handleSubmit} onInputChange={handleInputChange}></SignUpForm>
+    </>
+  )
 }
+
+export default signUp;
+
+signUp.getLayout = function getLayout(page, props) {
+  return (
+    <Layout headerData={props.headerData}>{page}</Layout>
+  );
+};
+
+export async function getStaticProps() {
+  return {
+    props: {
+      headerData:{title: "Travel Community -  Sign Up", content: "Sign Up"},
+    }
+  };
+}
+
+
