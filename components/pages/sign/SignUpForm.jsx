@@ -1,4 +1,23 @@
+import { useState } from 'react';
+
 export default function signUpForm(props) {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+    
+
+    
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const formData = {
+        name,
+        email,
+        password,
+      };
+      console.log(formData);
+    // send form data to server or API
+    };
     return(
       <>
         <div className="container">
@@ -12,23 +31,15 @@ export default function signUpForm(props) {
                 <form>
                     <div className="form-group">
                     <label htmlFor="name">Tour Company/Person Name:</label>
-                    <input type="text" className="form-control" id="name" placeholder="Enter name" required />
+                    <input type="text" className="form-control" id="name" placeholder="Enter name" value={name} onChange={(event) => setName(event.target.value)} required />
                     </div>
                     <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="email" className="form-control" id="email" placeholder="Enter email" required />
-                    </div>
-                    <div className="form-group">
-                    <label htmlFor="mobile">Mobile:</label>
-                    <input type="tel" className="form-control" id="mobile" placeholder="Enter mobile number" required />
-                    </div>
-                    <div className="form-group">
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" className="form-control" id="username" placeholder="Enter username" required />
+                    <input type="email" className="form-control" id="email" placeholder="Enter email" value={email} onChange={(event) => setEmail(event.target.value)} required />
                     </div>
                     <div className="form-group">
                     <label htmlFor="password">Password:</label>
-                    <input type="password" className="form-control" id="password" placeholder="Enter password" required />
+                    <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={(event) => setPassword(event.target.value)} required />
                     </div>
                     <button type="submit" className="btn btn-primary my-2">Submit</button>
                 </form>
