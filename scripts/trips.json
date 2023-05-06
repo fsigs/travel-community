@@ -19,6 +19,7 @@
     "endDate": "2022-08-22T00:00:00.000Z",
     "locationFrom": "Denver",
     "locationTo": "Montana",
+    "imageUrl": "",
     "email": "jane@example.com",
     "registrations": 5,
     "cost": 3000

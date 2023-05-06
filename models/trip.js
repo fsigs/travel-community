@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const tripSchema = new mongoose.Schema({
+const TripSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -47,4 +47,4 @@ const tripSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.models.Trip || mongoose.model('Trip', tripSchema)
+module.exports = mongoose.models.Trip || mongoose.model('Trip', TripSchema)

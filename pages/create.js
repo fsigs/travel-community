@@ -4,11 +4,14 @@ import BannerPlaces from "../components/common/BannerPlaces";
 import TripCreateForm from "../components/pages/create/TripCreateForm"
 
 const createPage = (props) => {
-
+  
   const handleCreate = async (data) => {
     fetch('/api/trips', {
       method: 'POST',
-      body: data
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     }).then(response => response.json())
     .then(data => {
       console.log(data);

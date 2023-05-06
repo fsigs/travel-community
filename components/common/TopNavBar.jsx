@@ -3,7 +3,9 @@ export default function TopNavBar(props) {
     <>
       <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:  "#0a4275"}}>
         <div className="container">
-          <a className="navbar-brand" href="/" style={{color: "#FFF"}}>TRAVEL COMMUNITY</a>
+          <a className="navbar-brand" href="/" style={{color: "#FFF"}}>
+          TRAVEL COMMUNITY
+          </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

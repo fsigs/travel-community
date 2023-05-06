@@ -9,7 +9,8 @@ const createTripSchema = Joi.object({
   locationFrom: Joi.string().required(),
   locationTo: Joi.string().required(),
   email: Joi.string().email().required(),
-  cost: Joi.number().integer().min(10),
+  registrations: Joi.number().integer().min(1),
+  cost: Joi.number().integer().min(1),
 });
 
 const updateTripSchema = Joi.object({
@@ -21,7 +22,8 @@ const updateTripSchema = Joi.object({
   locationFrom: Joi.string().required(),
   locationTo: Joi.string().required(),
   email: Joi.string().email().required(),
-  cost: Joi.number().integer().min(10),
+  registrations: Joi.number().integer().min(1),
+  cost: Joi.number().integer().min(1),
 });
 
 module.exports = { createTripSchema, updateTripSchema };

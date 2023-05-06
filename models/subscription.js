@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const subscriptionSchema = new mongoose.Schema({
+const SubscriptionSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -13,6 +13,4 @@ const subscriptionSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-const Subscription = mongoose.model('Subscription', subscriptionSchema);
-
-module.exports = Subscription;
+module.exports = mongoose.models.Subscription || mongoose.model('Subscription', SubscriptionSchema)
