@@ -10,7 +10,7 @@ Init command requires mongoimport utility. Install Mongo Tools and enable it htt
 Create an empty database in Mongo called travelCommunity with one empty collection called trips. 
 Import the trips.json file in scripts folder into trips collection.
 
-Commands to start the app:
+Commands to start the app :
 npm install
 npm run init
 npm run dev or npm run start (if you want productive deployment)

@@ -1,8 +1,14 @@
 import Subscription  from '../models/subscription';
+import {getTripById} from "./tripService";
+
 
 async function subscribeToTrip(userId, tripId) {
   try {
-    // Validation of number (registrations) Ishtiaq
+    const trip = getTripById(tripId)
+    const countUser = countSubscribedUsers(tripId)
+    if (countUser >= trip.registrations){
+      return {"error": "Subscription is not allowed"};
+    }
     const subscription = await Subscription.findOneAndUpdate(
       { user: userId, trip: tripId },
       { user: userId, trip: tripId },
@@ -25,4 +31,14 @@ async function unsubscribeFromTrip(userId, tripId) {
   }
 }
 
-module.exports = { subscribeToTrip, unsubscribeFromTrip };
+async function countSubscribedUsers(tripId) {
+  try {
+    const count = await Subscription.countDocuments({ trip: tripId });
+    return count;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error counting subscribed users');
+  }
+}
+
+module.exports = { subscribeToTrip, unsubscribeFromTrip, countSubscribedUsers};

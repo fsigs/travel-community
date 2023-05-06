@@ -1,4 +1,5 @@
 import { formatDate, getDuration } from '../../../utils/dates';
+import Link from "next/link";
 
 export default function TripCardList ({trips}) {
   
@@ -34,8 +35,10 @@ export default function TripCardList ({trips}) {
                     Start Point: {trip.locationFrom}<br/>
                     Destination: {trip.locationTo}
                   </p>
-                  <a href={"/trip/" + trip._id} className="btn btn-primary">Detail</a>
-                  <a href={"/suscribe-" + trip._id} className="btn btn-primary">Join</a>  
+                  <a href={"/trip/" + trip._id} className="btn btn-primary btn-space">Detail</a>
+                  <Link href={{pathname: "/subscribe/" + trip._id, query: {userId: '64545fa6da9e469a5f8733de'}}}>
+                  <a className="btn btn-primary btn-space">Join</a>
+                  </Link>  
                 </div>
               </div>
             </div>
