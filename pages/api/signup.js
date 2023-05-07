@@ -1,23 +1,21 @@
-const User = require('../../models/user');
-const bcrypt = require('bcryptjs');
+import connectDB from '../../utils/db';
+import User from '../../models/User';
 
 export default async function handler(req, res) {
+  await connectDB();
+  
   if (req.method === 'POST') {
     const { name, email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+
     try {
-      const user = new User({
-        name: name,
-        email: email,
-        password: hashedPassword,
-      });
+      const user = new User({ name, email, password });
       await user.save();
-      res.status(201).json({ message: 'User created successfully' });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
+      res.status(201).json(user);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
     }
   } else {
-    res.status(405).json({ message: 'Method not allowed' });
+    res.status(405).json({ message: 'Method Not Allowed' });
   }
 }
+
