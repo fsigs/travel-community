@@ -11,9 +11,9 @@ Create an empty database in Mongo called travelCommunity with one empty collecti
 Import the trips.json file in scripts folder into trips collection.
 
 Commands to start the app :
-npm install
-npm run init
-npm run dev or npm run start (if you want productive deployment)
+* npm install
+* npm run init
+* npm run dev or npm run start (if you want productive deployment)
 
 Project should listen in http://localhost:3000
 
