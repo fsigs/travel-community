@@ -12,8 +12,6 @@ Import the trips.json file in scripts folder into trips collection.
 
 Commands to start the app :
 npm install
-npm i axios 
-npm i bcryptjs
 npm run init
 npm run dev or npm run start (if you want productive deployment)
 
