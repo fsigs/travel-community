@@ -1,57 +1,39 @@
 import React, { useState } from 'react';
+//import connectDB from '../utils/db';
 import Layout from "../components/layouts/Layout";
 import TopNavBar from "../components/common/TopNavBar";
 import BannerPlaces from "../components/common/BannerPlaces";
 import SignUpForm from "../components/pages/sign/SignUpForm"
 
-const signUp = (props) => {
-  const [formData, setFormData] = useState({ name: '', email: '', password: ''});
+const signUpPage = (props) => {
+  //JS functions
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  return (
+  return(
     <>
-      <TopNavBar></TopNavBar>
-      <BannerPlaces></BannerPlaces>
-      <SignUpForm onSubmit={handleSubmit} onInputChange={handleInputChange}></SignUpForm>
+     <TopNavBar></TopNavBar>
+     <BannerPlaces></BannerPlaces>
+     <SignUpForm></SignUpForm>
+
+
     </>
   )
 }
 
-export default signUp;
+export default signUpPage;
 
-signUp.getLayout = function getLayout(page, props) {
+signUpPage.getLayout = function getLayout(page, props) {
   return (
     <Layout headerData={props.headerData}>{page}</Layout>
   );
-};
+}; 
 
 export async function getStaticProps() {
   return {
     props: {
-      headerData:{title: "Travel Community -  Sign Up", content: "Sign Up"},
+      headerData:{title: "Travel Community -  Create a Trip", content: "You can create a Trip"},
     }
   };
-}
+} 
+
 
 
