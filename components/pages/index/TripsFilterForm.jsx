@@ -39,18 +39,18 @@ export default function TripsFilterForm ({ onFilter }) {
                   <label className="form-label">Group size (# people):</label>
                   <div className="input-group">
                     <span className="input-group-text"></span>
-                    <input type="number" className="form-control" id="registrationsMin" name="registrationsMin" min="1" max="1000" />
+                    <input type="number" className="form-control" id="registrationsMin" name="registrationsMin" min="1" max="1000" placeholder="min"/>
                     <span className="input-group-text">-</span>
-                    <input type="number" className="form-control" id="registrationsMax" name="registrationsMax" min="1" max="1000" />
+                    <input type="number" className="form-control" id="registrationsMax" name="registrationsMax" min="1" max="1000" placeholder="max" />
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="form-label">Estimated Cost:</label>
                   <div className="input-group">
                     <span className="input-group-text">$</span>
-                    <input type="number" className="form-control" id="costMin" name="costMin" min="1" max="10000" />
+                    <input type="number" className="form-control" id="costMin" name="costMin" min="1" max="10000" placeholder="min"/>
                     <span className="input-group-text">-</span>
-                    <input type="number" className="form-control" id="costMax" name="costMax" min="1" max="10000" />
+                    <input type="number" className="form-control" id="costMax" name="costMax" min="1" max="10000" placeholder="max"/>
                   </div>
                 </div>
                 <div className="form-group">
