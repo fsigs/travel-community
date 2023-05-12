@@ -4,20 +4,33 @@ import {getTripById} from "./tripService";
 
 async function subscribeToTrip(userId, tripId) {
   try {
-    const trip = getTripById(tripId)
-    const countUser = countSubscribedUsers(tripId)
-    if (countUser >= trip.registrations){
-      return {"error": "Subscription is not allowed"};
+    const trip = await getTripById(tripId)
+    const countUsers = await countSubscribedUsers(tripId)
+    if (countUsers >= trip.registrations){
+      return {"error": "Subscription is not allowed since this trip is full."};
     }
-    const subscription = await Subscription.findOneAndUpdate(
+    const subscriptionUpdated = await Subscription.findOneAndUpdate(
       { user: userId, trip: tripId },
       { user: userId, trip: tripId },
       { upsert: true, new: true }
-    );
-    return subscription;
+    ).populate('trip');
+    if (!subscriptionUpdated) {
+      try {
+        const subscriptionCreated = await Subscription.create({
+          user: userId,
+          trip: tripId,
+        }).populate('trip');
+        return subscriptionCreated;
+      } catch (error) {
+        console.error(error);
+        throw new Error('Error creating subscription');
+      }
+    } else {
+      return subscriptionUpdated;
+    }
   } catch (error) {
     console.error(error);
-    throw new Error('Error subscribing to trip');
+    throw new Error('Error updating subscription');
   }
 }
 

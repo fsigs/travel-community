@@ -29,9 +29,10 @@ export async function getStaticProps(context) {
   await connectDB();
   const { params, query } = context;
   const { tripId } = params;
-  const userId = '64545fa6da9e469a5f8733de'
+  const userIdParche = '64545fa6da9e469a5f8733de'
   //const { userId } = query;
-  const subscription = await subscribeToTrip(userId, tripId)
+  //console.log('userId: ' + userId)
+  const subscription = await subscribeToTrip(userIdParche, tripId)
   return {
     props: {
       headerData:{title: "Travel Community Subscription Page", content: "Better Trips in group"},

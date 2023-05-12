@@ -1,24 +1,24 @@
-export default function Subscription(props) {
+export default function Subscription({subscription}) {
     return (
         <>
-            <div class="container mt-5 mb-5">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3 ">
-                    { (props.subscription.error) ? (
-                        <div class="alert alert-danger" role="alert">
-                            <h4 class="alert-heading">Failed!</h4>
-                            <p>{props.subscription.error}</p>
-                        </div>
-                    ) : (
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">Success!</h4>
-                            <p>Your subscription was successful. Welcome to the trip <b>{props.subscription.name}</b>!</p>
-                        </div>
-                    )
-                    }  
-                    </div>
+          <div className="container mt-5 mb-5">
+            <div className="row">
+              <div className="col-md-6 offset-md-3 ">
+              { (subscription.error) ? (
+                <div className="alert alert-danger" role="alert">
+                  <h4 className="alert-heading">Failed!</h4>
+                  <p>{subscription.error}</p>
                 </div>
+              ) : (
+                <div className="alert alert-success" role="alert">
+                  <h4 className="alert-heading">Your registration</h4>
+                  <p>Now, you are registered for the trip <b>{subscription.trip.name}</b>!</p>
+                </div>
+              )
+              }  
+              </div>
             </div>
+          </div>
         </>
     )
 }
